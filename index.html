@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Мире</title>
-<meta name="description" content="Мерей, для своих Мире: ISFP, кинофилка, видринк-зависимая кошечка. Все её ссылки и анонимные вопросы.">
+<meta name="description" content="Мерей, для своих Мире: ISFP, кинофилка, видринк-зависимая кошечка. Все её ссылки.">
 <meta name="theme-color" content="#FFEEF3">
 <meta name="color-scheme" content="only light">
 <meta property="og:type" content="website">
@@ -479,11 +479,9 @@
   .vibe-foot .deco { font-size: 1.4rem; letter-spacing: .1em; color: var(--muted); }
 
   /* ---------- links ---------- */
-  .features { display: grid; grid-template-columns: 1.2fr 1fr; gap: 22px; margin-bottom: 24px; }
-  .feature { padding: 28px; display: grid; gap: 14px; align-content: start; }
-  .feature.anon { background: var(--pink); color: var(--on-pink); }
-  .feature.anon .btn { background: var(--surface); color: var(--ink); }
-  .feature .f-title { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; margin: 0; }
+  .features { margin-bottom: 24px; }
+  .feature { padding: 24px 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+  .feature .f-title { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; margin: 0 auto 0 0; }
   .feature p { margin: 0; font-size: 1.08rem; }
   .handle-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
   .handle {
@@ -522,14 +520,6 @@
   footer p { margin: 0; color: var(--muted); }
   footer .sign { font-family: var(--hand); font-weight: 700; font-size: 1.6rem; color: var(--ink); }
 
-  /* ---------- anon question helper ---------- */
-  .ask { display: grid; gap: 10px; }
-  .feature .ask-q {
-    margin: 0; padding: 12px 16px; border-radius: 16px;
-    background: var(--surface); color: var(--ink); border: 2px solid var(--line);
-    font-family: var(--hand); font-weight: 700; font-size: 1.45rem; line-height: 1.15;
-  }
-  .ask-row { display: flex; flex-wrap: wrap; gap: 8px; }
 
   /* ---------- peeking cat ---------- */
   .peek {
@@ -578,7 +568,7 @@
     .link-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 820px) {
-    .hero-grid, .stack-wrap, .pick-grid, .drink-grid, .features { grid-template-columns: 1fr; }
+    .hero-grid, .stack-wrap, .pick-grid, .drink-grid { grid-template-columns: 1fr; }
     .cat-card { max-width: 420px; justify-self: center; width: 100%; }
     .care { grid-template-columns: 1fr; }
     .logo { font-size: 1.3rem; }
@@ -612,14 +602,6 @@
     <circle r="6.5"/>
   </symbol>
   <!-- sticker icons: body takes the inherited pink fill, outlines use currentColor -->
-  <symbol id="i-ghost" viewBox="0 0 24 24">
-    <path fill="#fff" d="M5 20.5V10.8a7 7 0 0 1 14 0v9.7l-2.3-1.6-2.4 1.6-2.3-1.6-2.3 1.6-2.4-1.6Z"/>
-    <circle cx="9.4" cy="11" r="1.15" fill="currentColor" stroke="none"/>
-    <circle cx="14.6" cy="11" r="1.15" fill="currentColor" stroke="none"/>
-    <ellipse cx="7.9" cy="13.7" rx="1.3" ry=".8" stroke="none"/>
-    <ellipse cx="16.1" cy="13.7" rx="1.3" ry=".8" stroke="none"/>
-    <path fill="none" d="M11 13.4q1 .9 2 0"/>
-  </symbol>
   <symbol id="i-plane" viewBox="0 0 24 24">
     <path d="M21 3.4 2.9 10.5c-.8.3-.8 1.4 0 1.7l4.5 1.6 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.8 4.6 3.4c.6.4 1.4.1 1.6-.6l2.7-14.5c.2-.8-.6-1.5-1.3-1.2Z"/>
     <path fill="none" d="m7.4 13.8 10.2-6.7-6.9 8.3"/>
@@ -717,8 +699,7 @@
         </ul>
         <p class="bubble">не смотри так долго… ладно, смотри ♡</p>
         <div class="cta-row">
-          <a class="btn primary" href="https://t.me/voprosy?start=y2j8g" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ghost"/></svg>задать анонимный вопрос</a>
-          <a class="btn" href="https://t.me/cinepleaser" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-plane"/></svg>написать @cinepleaser</a>
+          <a class="btn primary" href="https://t.me/cinepleaser" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-plane"/></svg>написать @cinepleaser</a>
         </div>
       </div>
 
@@ -1060,17 +1041,6 @@
       </div>
 
       <div class="features">
-        <div class="feature anon panel">
-          <p class="f-title"><svg class="ico" aria-hidden="true"><use href="#i-ghost"/></svg>анонка</p>
-          <div class="ask">
-            <p class="ask-q" id="askQ" aria-live="polite">какой фильм ты можешь пересматривать бесконечно?</p>
-            <div class="ask-row">
-              <button class="copy-btn" id="askBtn" type="button">другой вопрос</button>
-              <button class="copy-btn" id="askCopy" type="button">скопировать вопрос</button>
-            </div>
-          </div>
-          <div><a class="btn" href="https://t.me/voprosy?start=y2j8g" target="_blank" rel="noopener">спросить анонимно ↗</a></div>
-        </div>
         <div class="feature panel tone">
           <p class="f-title"><svg class="ico" aria-hidden="true"><use href="#i-plane"/></svg>телеграм</p>
           <div class="handle-row">
@@ -1179,43 +1149,6 @@
   onScroll();
   peek.addEventListener('click', function () { window.scrollTo({ top: 0 }); });
 
-  /* anon question ideas */
-  var questions = [
-    'какой фильм ты можешь пересматривать бесконечно?',
-    'какой фильм последним получил от тебя «ета пик»?',
-    'что недавно заставило тебя сказать «олюююм»?',
-    'кого ты последний раз назвала «твар на»?',
-    'твой топ-3 напитка в видринке?',
-    'кто твой comfort character?',
-    'какой кадр из фильма ты бы повесила на стену?',
-    'какую песню ты сейчас слушаешь на репите?',
-    'какой образ ты бы собрала на первое свидание?',
-    'какой фильм посоветуешь посмотреть сегодня вечером?',
-    'какой у тебя самый пикми-поступок?',
-    'какой была бы твоя кошачья порода?',
-    'как выглядит твой идеальный день?',
-    'на каком фильме ты плакала сильнее всего?'
-  ];
-  var qi = 0;
-  var askQ = document.getElementById('askQ');
-  var askCopy = document.getElementById('askCopy');
-  document.getElementById('askBtn').addEventListener('click', function () {
-    var n;
-    do { n = Math.floor(Math.random() * questions.length); } while (n === qi);
-    qi = n;
-    askQ.textContent = questions[qi];
-  });
-  askCopy.addEventListener('click', function () {
-    var done = function (msg) { askCopy.textContent = msg; setTimeout(function () { askCopy.textContent = 'скопировать вопрос'; }, 1800); };
-    var fallback = function () {
-      var r = document.createRange(); r.selectNodeContents(askQ);
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-      done('выделено, жми ctrl+c');
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(askQ.textContent).then(function () { done('скопировано, вставь в анонку ♡'); }, fallback);
-    } else { fallback(); }
-  });
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
