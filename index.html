@@ -1,0 +1,1172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Мире</title>
+<meta name="description" content="Мерей, для своих Мире: ISFP, кинофилка, видринк-зависимая кошечка. Все её ссылки и анонимные вопросы.">
+<meta name="theme-color" content="#FFEEF3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:ital,wght@0,400;0,600;0,800;0,900;1,600&family=Rubik+Bubbles&display=swap">
+<style>
+  :root {
+    --bg: #FFEEF3;
+    --bg-dot: #FAD3DF;
+    --surface: #FFF9FB;
+    --surface-2: #FFE2EB;
+    --ink: #3A1828;
+    --muted: #8A5069;
+    --pink: #D92D68;
+    --pink-soft: #FF8FB1;
+    --pink-text: #C8215B;
+    --rose: #FFC3D5;
+    --on-pink: #FFFFFF;
+    --line: #3A1828;
+    --tone: #F2A9C0;
+    --film: #2A1320;
+    --film-hole: #FFE2EB;
+    --cat-fill: #FFFFFF;
+    --cat-line: #3A1828;
+    --cat-inner: #FFB3C9;
+    --display: "Rubik Bubbles", "Nunito", "Segoe UI", system-ui, sans-serif;
+    --body: "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --hand: "Caveat", "Segoe Print", "Comic Sans MS", cursive;
+    --radius: 22px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #1E0E17;
+      --bg-dot: #2F1624;
+      --surface: #2A1420;
+      --surface-2: #37192A;
+      --ink: #FFE6EF;
+      --muted: #D9A2BA;
+      --pink: #FF6B9D;
+      --pink-soft: #C94A78;
+      --pink-text: #FF8DB3;
+      --rose: #5C2843;
+      --on-pink: #2A0A18;
+      --line: #F9D3E1;
+      --tone: #4B2338;
+      --film: #120810;
+      --film-hole: #3A1B2B;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #1E0E17;
+    --bg-dot: #2F1624;
+    --surface: #2A1420;
+    --surface-2: #37192A;
+    --ink: #FFE6EF;
+    --muted: #D9A2BA;
+    --pink: #FF6B9D;
+    --pink-soft: #C94A78;
+    --pink-text: #FF8DB3;
+    --rose: #5C2843;
+    --on-pink: #2A0A18;
+    --line: #F9D3E1;
+    --tone: #4B2338;
+    --film: #120810;
+    --film-hole: #3A1B2B;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { overflow-x: clip; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: radial-gradient(var(--bg-dot) 1.2px, transparent 1.6px);
+    background-size: 16px 16px;
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg { max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px dashed var(--pink-text); outline-offset: 4px; border-radius: 8px; }
+  [hidden] { display: none !important; }
+
+  .wrap { max-width: 1100px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 36px); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* ---------- nav ---------- */
+  .nav {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; gap: 16px; padding-block: 10px; }
+  .logo {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    color: var(--pink-text);
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .nav-links {
+    display: flex; gap: 6px; margin: 0 0 0 auto; padding: 2px; list-style: none;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    display: block; white-space: nowrap; text-decoration: none;
+    font-weight: 800; font-size: .88rem;
+    padding: 6px 12px; border-radius: 999px;
+    color: var(--ink);
+  }
+  .nav-links a:hover { background: var(--rose); }
+
+  /* ---------- shared bits ---------- */
+  .section { padding-block: clamp(64px, 9vw, 112px); position: relative; }
+  .sec-head { display: grid; gap: 4px; margin-bottom: clamp(28px, 4vw, 44px); max-width: 760px; }
+  .note {
+    font-family: var(--hand); font-weight: 700;
+    font-size: 1.55rem; line-height: 1.1;
+    color: var(--muted); margin: 0;
+    transform: rotate(-2deg); transform-origin: left;
+  }
+  h2 {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(2.3rem, 6vw, 3.8rem);
+    line-height: 1.08; margin: 0;
+    color: var(--pink);
+    text-shadow: 3px 3px 0 var(--line);
+    text-wrap: balance;
+    letter-spacing: .01em;
+  }
+  h3 { font-size: 1.3rem; line-height: 1.25; margin: 0; font-weight: 900; text-wrap: balance; }
+  .lead { font-size: 1.15rem; max-width: 64ch; margin: 0; }
+  .lead + .lead { margin-top: 12px; }
+  .muted { color: var(--muted); }
+
+  .panel {
+    background: var(--surface);
+    border: 2.5px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: 6px 6px 0 var(--line);
+  }
+  .tone {
+    background-color: var(--surface-2);
+    background-image: radial-gradient(var(--tone) 1.5px, transparent 1.8px);
+    background-size: 8px 8px;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font: 800 1rem/1.2 var(--body);
+    padding: 14px 22px;
+    border-radius: 999px;
+    border: 2.5px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 4px 4px 0 var(--line);
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translate(-2px, -2px) rotate(-1deg); box-shadow: 6px 6px 0 var(--line); }
+  .btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--line); }
+  .btn.primary { background: var(--pink); color: var(--on-pink); }
+
+  .lace {
+    height: 24px;
+    background:
+      radial-gradient(circle at 50% 0, var(--rose) 0 11px, transparent 11.5px) 0 0 / 26px 15px repeat-x,
+      radial-gradient(circle, var(--rose) 0 2.4px, transparent 2.8px) 13px 17px / 26px 7px repeat-x;
+  }
+
+  .heart-ico { width: 1em; height: 1em; fill: currentColor; vertical-align: -0.12em; }
+  .bow-ico { fill: var(--pink-soft); stroke: var(--line); stroke-width: 3; stroke-linejoin: round; }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; padding-block: clamp(40px, 7vw, 84px) clamp(48px, 7vw, 90px); }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr .85fr;
+    gap: clamp(28px, 5vw, 60px); align-items: center;
+  }
+  .hero-text { position: relative; z-index: 1; }
+  .eyebrow { margin: 0 0 18px; font-weight: 800; letter-spacing: .06em; font-size: .9rem; color: var(--muted); }
+  .passport { margin: 0; font-family: var(--hand); font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.1; }
+  .passport b { color: var(--pink-text); }
+  .name-wrap { position: relative; display: inline-block; font-size: clamp(5.2rem, 19vw, 10.5rem); margin-top: .28em; }
+  .name {
+    font-family: var(--display); font-weight: 400;
+    font-size: 1em; line-height: .92; margin: 0;
+    color: var(--pink);
+    text-shadow: .045em .045em 0 var(--line);
+    letter-spacing: .02em;
+  }
+  .ear {
+    position: absolute; top: -.26em;
+    width: .36em; height: .4em;
+    background: var(--pink);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+  .ear::after {
+    content: ""; position: absolute; inset: 38% 26% 0;
+    background: var(--rose);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+  .ear.l { left: .12em; transform: rotate(-16deg); }
+  .ear.r { right: .12em; transform: rotate(16deg); }
+  .name-bow { position: absolute; right: -.26em; top: -.44em; width: .5em; transform: rotate(18deg); }
+  .kiss {
+    position: absolute; left: 100%; bottom: .1em;
+    font-family: var(--hand); font-size: .2em; line-height: 1;
+    color: var(--pink-text); white-space: nowrap;
+    transform: rotate(-8deg) translateX(-.2em);
+  }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
+  .pills li {
+    font-weight: 800; font-size: .9rem;
+    padding: 5px 13px; border-radius: 999px;
+    border: 2px solid var(--line); background: var(--surface);
+  }
+  .pills li:first-child { background: var(--pink); color: var(--on-pink); }
+
+  .bubble {
+    position: relative; display: inline-block;
+    margin: 26px 0 0; padding: 12px 24px;
+    font-family: var(--hand); font-weight: 700; font-size: 1.7rem; line-height: 1.15;
+    background: var(--surface); border: 2.5px solid var(--line); border-radius: 28px;
+  }
+  .bubble::after {
+    content: ""; position: absolute; left: 34px; bottom: -13px;
+    width: 20px; height: 20px; background: var(--surface);
+    border-right: 2.5px solid var(--line); border-bottom: 2.5px solid var(--line);
+    transform: rotate(45deg) skew(12deg, 12deg);
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+
+  .cat-card { position: relative; padding: 26px 22px 22px; text-align: center; transform: rotate(1.5deg); }
+  .cat-tag {
+    position: absolute; top: -16px; left: 22px;
+    font-weight: 900; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
+    background: var(--ink); color: var(--bg);
+    padding: 4px 12px; border-radius: 6px; transform: rotate(-4deg);
+  }
+  .cat-btn {
+    display: block; width: 100%; max-width: 320px; margin-inline: auto;
+    background: none; border: 0; padding: 0; cursor: pointer;
+  }
+  .cat-btn svg { display: block; width: 100%; height: auto; transition: transform .25s ease; }
+  .cat-btn:hover svg { transform: rotate(-3deg) scale(1.02); }
+  .purring .cat-btn svg { animation: purr .18s ease-in-out 6 alternate; }
+  @keyframes purr { from { transform: translateX(-2px) rotate(-1deg); } to { transform: translateX(2px) rotate(1deg); } }
+  .c-fill { fill: var(--cat-fill); stroke: var(--cat-line); stroke-width: 4.5; stroke-linejoin: round; }
+  .c-inner { fill: var(--cat-inner); }
+  .c-eye { fill: var(--cat-line); }
+  .c-shine { fill: #fff; }
+  .c-blush { fill: #FF9EBB; opacity: .75; }
+  .c-hatch, .c-stroke { fill: none; stroke: var(--cat-line); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+  .c-hatch { stroke: #E0467C; stroke-width: 2.5; }
+  .c-whisk { fill: none; stroke: var(--cat-line); stroke-width: 2.5; stroke-linecap: round; }
+  .c-nose { fill: #F0588B; }
+  .c-bow { fill: var(--pink-soft); stroke: var(--cat-line); stroke-width: 3.5; stroke-linejoin: round; }
+  .eyes-happy { display: none; }
+  .purring .eyes-open { display: none; }
+  .purring .eyes-happy { display: inline; }
+  .purr-bubble {
+    position: absolute; top: 16px; right: 12px;
+    font-family: var(--hand); font-weight: 700; font-size: 1.6rem; line-height: 1;
+    background: var(--surface); border: 2.5px solid var(--line); border-radius: 20px;
+    padding: 6px 14px; transform: rotate(6deg) scale(.6); opacity: 0;
+    transition: opacity .2s ease, transform .2s ease; pointer-events: none;
+  }
+  .purring .purr-bubble { opacity: 1; transform: rotate(6deg) scale(1); }
+  .cat-caption { margin: 12px 0 0; font-family: var(--hand); font-weight: 700; font-size: 1.5rem; line-height: 1.1; }
+  .pet-count { margin: 4px 0 0; font-size: .9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  .float-hearts { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .float-hearts svg { position: absolute; fill: var(--pink-soft); opacity: .55; animation: bob 6s ease-in-out infinite; }
+  .float-hearts svg:nth-child(1) { width: 26px; left: 3%;  top: 12%; }
+  .float-hearts svg:nth-child(2) { width: 18px; left: 46%; top: 6%;  animation-delay: -2s; }
+  .float-hearts svg:nth-child(3) { width: 32px; left: 55%; top: 84%; animation-delay: -4s; }
+  .float-hearts svg:nth-child(4) { width: 16px; left: 92%; top: 8%;  animation-delay: -1s; }
+  .float-hearts svg:nth-child(5) { width: 22px; left: 8%;  top: 90%; animation-delay: -3s; }
+  @keyframes bob { 50% { transform: translateY(-14px) rotate(10deg); } }
+
+  /* ---------- isfp ---------- */
+  .letters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 36px; }
+  .letter {
+    padding: 18px 18px 20px;
+    background: var(--surface); border: 2.5px solid var(--line); border-radius: 18px;
+    display: grid; gap: 6px; align-content: start;
+  }
+  .letter .big { font-family: var(--display); font-size: 3.4rem; line-height: 1; color: var(--pink); }
+  .letter b { font-weight: 900; font-size: 1.05rem; }
+  .letter p { margin: 0; font-size: .98rem; color: var(--muted); }
+
+  .stack-wrap { margin-top: 56px; display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(24px, 5vw, 60px); align-items: start; }
+  .stack-intro { display: grid; gap: 10px; }
+  .stack { list-style: none; margin: 0; padding: 0; counter-reset: fn; }
+  .stack li {
+    counter-increment: fn;
+    display: grid; grid-template-columns: 96px 1fr; gap: 4px 16px;
+    padding-block: 18px; border-top: 2px dashed var(--pink-soft);
+  }
+  .stack li:last-child { border-bottom: 2px dashed var(--pink-soft); }
+  .fn-code { grid-row: span 2; font-family: var(--display); font-size: 2.4rem; line-height: 1; color: var(--pink); }
+  .fn-code small { display: block; font-family: var(--body); font-weight: 800; font-size: .72rem; color: var(--muted); letter-spacing: .06em; margin-top: 6px; white-space: nowrap; }
+  .fn-code small::before { content: "№" counter(fn) " · "; }
+  .fn-name { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+  .fn-role {
+    font-size: .75rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase;
+    padding: 2px 9px; border-radius: 999px; background: var(--rose); color: var(--ink);
+  }
+  .stack p { margin: 0; }
+
+  /* ---------- dictionary ---------- */
+  .dict { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .entry { padding: 26px 24px 22px; display: grid; gap: 12px; align-content: start; }
+  .entry:nth-child(2) { transform: rotate(-1.2deg); }
+  .entry:nth-child(3) { transform: rotate(1deg); }
+  .say {
+    position: relative; justify-self: start; margin: 0;
+    font-family: var(--display); font-size: clamp(1.9rem, 4vw, 2.5rem); line-height: 1.05;
+    color: var(--pink);
+    padding: 10px 20px 12px;
+    background: var(--surface-2); border: 2.5px solid var(--line); border-radius: 26px;
+    overflow-wrap: anywhere;
+  }
+  .say::after {
+    content: ""; position: absolute; left: 26px; bottom: -12px;
+    width: 18px; height: 18px; background: var(--surface-2);
+    border-right: 2.5px solid var(--line); border-bottom: 2.5px solid var(--line);
+    transform: rotate(45deg);
+  }
+  .pron { margin: 8px 0 0; font-size: .92rem; color: var(--muted); }
+  .pron i { font-style: italic; font-weight: 600; }
+  .meaning { margin: 0; font-size: 1.1rem; }
+  .meaning b { font-weight: 900; }
+  .usage { margin: 0; font-size: .95rem; color: var(--muted); }
+  .shock-btn {
+    justify-self: start; margin-top: 4px;
+    font: 800 .9rem/1.2 var(--body);
+    padding: 8px 14px; border-radius: 999px;
+    border: 2px solid var(--line); background: var(--rose); color: var(--ink); cursor: pointer;
+  }
+  .shock-btn:active { transform: translateY(2px); }
+  .shake { animation: shake .35s ease; }
+  @keyframes shake { 25% { transform: translateX(-4px) rotate(-2deg); } 75% { transform: translateX(4px) rotate(2deg); } }
+
+  /* ---------- pick-me ---------- */
+  .pick-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 5vw, 60px); align-items: center; }
+  .meters { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+  .meter { display: grid; grid-template-columns: minmax(0, 11rem) 1fr 3.6rem; gap: 14px; align-items: center; }
+  .m-label { font-weight: 800; line-height: 1.25; }
+  .bar { position: relative; height: 18px; border-radius: 999px; background: var(--surface); border: 2px solid var(--line); }
+  .bar i {
+    position: absolute; inset: 2px auto 2px 2px; border-radius: 999px;
+    width: calc(min(var(--v), 100%) - 4px);
+    background: repeating-linear-gradient(-45deg, var(--pink) 0 8px, var(--pink-soft) 8px 16px);
+  }
+  .bar.over i::after {
+    content: "✦"; position: absolute; right: -14px; top: 50%; transform: translateY(-54%);
+    color: var(--pink-text); font-size: 1.4rem; line-height: 1;
+  }
+  .m-val { font-weight: 900; text-align: right; font-variant-numeric: tabular-nums; }
+  .meters-cap { margin: 18px 0 0; font-family: var(--hand); font-weight: 700; font-size: 1.35rem; color: var(--muted); }
+
+  .quote-card { padding: 30px 28px 28px; text-align: center; display: grid; gap: 18px; justify-items: center; }
+  .quote { margin: 0; font-family: var(--hand); font-weight: 700; font-size: clamp(2rem, 4.2vw, 2.6rem); line-height: 1.05; text-wrap: balance; }
+  .verdict {
+    margin: 0; font-weight: 900; font-size: 1.1rem;
+    padding: 10px 16px; border-radius: 14px;
+    background: var(--rose); border: 2px dashed var(--line);
+  }
+  .verdict.pop { animation: stamp .35s cubic-bezier(.2, 1.6, .4, 1); }
+  @keyframes stamp { from { transform: scale(1.6) rotate(-8deg); opacity: 0; } }
+
+  /* ---------- care ---------- */
+  .care { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 40px; }
+  .care li { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; font-size: 1.1rem; padding-block: 6px; }
+  .care svg { width: 30px; height: 30px; fill: var(--pink); margin-top: 1px; }
+  .care-final {
+    margin: 34px 0 0; max-width: 40ch;
+    font-family: var(--hand); font-weight: 700; font-size: clamp(1.7rem, 3.6vw, 2.2rem); line-height: 1.15;
+    color: var(--pink-text); transform: rotate(-1.5deg);
+  }
+
+  /* ---------- cinema ---------- */
+  .tickets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+  .ticket {
+    position: relative;
+    display: grid; grid-template-columns: 1fr 56px;
+    background: var(--surface); border: 2.5px solid var(--line); border-radius: 16px;
+    box-shadow: 5px 5px 0 var(--line);
+  }
+  .ticket::before, .ticket::after {
+    content: ""; position: absolute; right: 44px;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--bg); border: 2.5px solid var(--line);
+  }
+  .ticket::before { top: -13px; clip-path: inset(50% 0 0 0); }
+  .ticket::after { bottom: -13px; clip-path: inset(0 0 50% 0); }
+  .t-main { padding: 18px 18px 18px 20px; display: grid; gap: 10px; align-content: start; }
+  .t-label { font-size: .75rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--pink-text); }
+  .t-rows { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+  .t-rows li { display: flex; gap: 8px; line-height: 1.35; }
+  .t-rows li::before { content: "♡"; color: var(--pink-text); font-weight: 900; }
+  .t-rows em { font-style: normal; color: var(--muted); }
+  .t-stub {
+    border-left: 2.5px dashed var(--line);
+    display: grid; place-items: center;
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    font-weight: 900; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted); padding-block: 12px; font-variant-numeric: tabular-nums;
+  }
+
+  .filmstrip {
+    position: relative; margin-top: 44px; overflow: hidden;
+    background: var(--film); border-radius: 14px; padding-block: 24px;
+  }
+  .filmstrip::before, .filmstrip::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 10px;
+    background: radial-gradient(ellipse 6px 4px at 50% 50%, var(--film-hole) 98%, transparent) 0 0 / 22px 10px repeat-x;
+  }
+  .filmstrip::before { top: 7px; }
+  .filmstrip::after { bottom: 7px; }
+  .frames { display: flex; gap: 12px; width: max-content; animation: roll 38s linear infinite; }
+  .filmstrip:hover .frames { animation-play-state: paused; }
+  .frame {
+    width: 190px; height: 118px; flex: none; border-radius: 6px;
+    display: grid; place-content: center; gap: 4px; text-align: center; padding: 10px;
+    background: linear-gradient(160deg, #FFD6E3, #FF9FBE);
+    color: #3A1828;
+  }
+  .frame:nth-child(even) { background: #F4EEF0; background-image: radial-gradient(#D9B7C4 1.3px, transparent 1.6px); background-size: 7px 7px; }
+  .frame .k { font-size: 1.25rem; font-weight: 800; white-space: nowrap; }
+  .frame .c { font-family: var(--hand); font-weight: 700; font-size: 1.3rem; line-height: 1.05; }
+  @keyframes roll { to { transform: translateX(-50%); } }
+  .cinema-cta { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+  /* ---------- wedrink ---------- */
+  .drink-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .cup-stage { padding: 26px; display: grid; justify-items: center; gap: 14px; }
+  .cup { width: min(230px, 70%); height: auto; overflow: visible; }
+  .cup.wiggle { animation: shake .4s ease; }
+  .cup-line { stroke: var(--line); stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+  .cup-glass { fill: var(--surface); }
+  .cup-drink { fill: var(--drink, #FF8FB0); transition: fill .4s ease; }
+  .cup-lid { fill: var(--rose); }
+  .cup-straw { fill: var(--pink); }
+  .cup-pearl { fill: #3A1828; }
+  .cup-face { fill: #3A1828; }
+  .cup-blush { fill: #FF6F9A; opacity: .7; }
+  .pearls { transition: opacity .3s ease; }
+  .reply {
+    margin: 0; text-align: center; min-height: 2.6em;
+    font-family: var(--hand); font-weight: 700; font-size: 1.55rem; line-height: 1.15;
+  }
+  .reply b { color: var(--pink-text); }
+  .menu { list-style: none; margin: 26px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .drink-btn {
+    width: 100%; height: 100%;
+    display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: center; text-align: left;
+    font: 800 1rem/1.25 var(--body); color: var(--ink);
+    padding: 14px 16px; border-radius: 16px;
+    background: var(--surface); border: 2.5px solid var(--line);
+    cursor: pointer; transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .drink-btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--line); }
+  .drink-btn[aria-pressed="true"] { background: var(--rose); box-shadow: 4px 4px 0 var(--line); }
+  .swatch { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line); background: var(--c); }
+
+  /* ---------- vibe ---------- */
+  .stickers { display: flex; flex-wrap: wrap; gap: 14px 12px; margin: 0; padding: 0; list-style: none; }
+  .stickers li {
+    font-weight: 800; font-size: 1.05rem; line-height: 1.2;
+    padding: 10px 16px; border: 2.5px solid var(--line); border-radius: 14px;
+    background: var(--surface); box-shadow: 3px 3px 0 var(--line);
+    transform: rotate(var(--r, 0deg));
+    transition: transform .2s ease;
+  }
+  .stickers li:hover { transform: rotate(0deg) scale(1.06); }
+  .stickers .s-pink { background: var(--pink); color: var(--on-pink); }
+  .stickers .s-tone { background-color: var(--surface-2); background-image: radial-gradient(var(--tone) 1.4px, transparent 1.7px); background-size: 7px 7px; }
+  .stickers .s-ink { background: var(--ink); color: var(--bg); box-shadow: 3px 3px 0 var(--pink); }
+  .stickers .s-hand { font-family: var(--hand); font-weight: 700; font-size: 1.45rem; padding-block: 6px; border-style: dashed; background: var(--bg); }
+  .stickers .s-lace { border-radius: 30px; border: 2.5px dotted var(--line); background: var(--surface-2); }
+  .vibe-foot { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
+  .vibe-foot .deco { font-size: 1.4rem; letter-spacing: .1em; color: var(--muted); }
+
+  /* ---------- links ---------- */
+  .features { display: grid; grid-template-columns: 1.2fr 1fr; gap: 22px; margin-bottom: 24px; }
+  .feature { padding: 28px; display: grid; gap: 14px; align-content: start; }
+  .feature.anon { background: var(--pink); color: var(--on-pink); }
+  .feature.anon .btn { background: var(--surface); color: var(--ink); }
+  .feature .f-title { font-family: var(--display); font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; margin: 0; }
+  .feature p { margin: 0; font-size: 1.08rem; }
+  .handle-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .handle {
+    font-weight: 900; font-size: 1.25rem; padding: 6px 14px; border-radius: 10px;
+    background: var(--surface-2); border: 2px dashed var(--line); user-select: all;
+  }
+  .copy-btn {
+    font: 800 .95rem/1.2 var(--body); padding: 9px 16px; border-radius: 999px;
+    border: 2px solid var(--line); background: var(--rose); color: var(--ink); cursor: pointer;
+  }
+
+  .link-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .link-card {
+    position: relative; display: grid; gap: 4px; align-content: start;
+    padding: 18px 18px 16px; min-height: 118px;
+    background: var(--surface); border: 2.5px solid var(--line); border-radius: 18px;
+    text-decoration: none; color: var(--ink);
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .link-card:hover { transform: translate(-2px, -3px) rotate(-1deg); box-shadow: 5px 5px 0 var(--line); background: var(--surface-2); }
+  .link-card:nth-child(even):hover { transform: translate(-2px, -3px) rotate(1deg); }
+  .lc-emo { font-size: 1.5rem; line-height: 1.2; letter-spacing: .05em; }
+  .lc-name { font-weight: 900; font-size: 1.15rem; }
+  .lc-sub { font-size: .9rem; color: var(--muted); overflow-wrap: anywhere; }
+  .lc-arrow { position: absolute; top: 14px; right: 16px; font-weight: 900; color: var(--pink-text); }
+
+  /* ---------- footer ---------- */
+  footer { padding-block: 10px 56px; text-align: center; }
+  footer .kaomoji { font-size: 1.6rem; margin: 26px 0 8px; }
+  footer p { margin: 0; color: var(--muted); }
+  footer .sign { font-family: var(--hand); font-weight: 700; font-size: 1.6rem; color: var(--ink); }
+
+  /* ---------- click hearts ---------- */
+  .pop-heart {
+    position: fixed; z-index: 60; pointer-events: none;
+    color: var(--pink); line-height: 1;
+    transform: translate(-50%, -50%);
+    animation: pop .9s ease-out forwards;
+  }
+  @keyframes pop {
+    to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scale(.5); opacity: 0; }
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    .letters { grid-template-columns: repeat(2, 1fr); }
+    .tickets, .dict { grid-template-columns: 1fr; max-width: 560px; }
+    .entry:nth-child(n) { transform: none; }
+    .link-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .hero-grid, .stack-wrap, .pick-grid, .drink-grid, .features { grid-template-columns: 1fr; }
+    .cat-card { max-width: 420px; justify-self: center; width: 100%; }
+    .care { grid-template-columns: 1fr; }
+    .logo { font-size: 1.3rem; }
+  }
+  @media (max-width: 520px) {
+    body { font-size: 16px; }
+    .meter { grid-template-columns: 1fr 3.2rem; }
+    .meter .bar { grid-column: 1 / -1; grid-row: 2; }
+    .menu { grid-template-columns: 1fr; }
+    .link-card { min-height: 0; padding: 14px; }
+    .lc-emo { font-size: 1.25rem; }
+    .kiss { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
+  <symbol id="paw" viewBox="0 0 24 24"><ellipse cx="12" cy="16.2" rx="5.4" ry="4.6"/><ellipse cx="4.6" cy="10.2" rx="2.3" ry="2.9"/><ellipse cx="9" cy="5.6" rx="2.3" ry="3"/><ellipse cx="15" cy="5.6" rx="2.3" ry="3"/><ellipse cx="19.4" cy="10.2" rx="2.3" ry="2.9"/></symbol>
+  <symbol id="bow" viewBox="-38 -24 76 56">
+    <path d="M-2 3 L-15 29 L-5 25 L2 4 Z"/>
+    <path d="M2 3 L15 29 L5 25 L-2 4 Z"/>
+    <path d="M0 0 C-14 -20 -35 -13 -33 2 C-31 17 -12 15 0 0 Z"/>
+    <path d="M0 0 C14 -20 35 -13 33 2 C31 17 12 15 0 0 Z"/>
+    <circle r="6.5"/>
+  </symbol>
+</svg>
+
+<nav class="nav" aria-label="разделы">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top">мире <svg class="heart-ico" aria-hidden="true"><use href="#heart"/></svg></a>
+    <ul class="nav-links">
+      <li><a href="#isfp">isfp</a></li>
+      <li><a href="#slovar">словарик</a></li>
+      <li><a href="#pikmi">пикми</a></li>
+      <li><a href="#kino">кино</a></li>
+      <li><a href="#vidrink">видринк</a></li>
+      <li><a href="#vibe">вайб</a></li>
+      <li><a href="#links">ссылки</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="float-hearts" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><use href="#heart"/></svg>
+      <svg viewBox="0 0 24 24"><use href="#heart"/></svg>
+      <svg viewBox="0 0 24 24"><use href="#heart"/></svg>
+      <svg viewBox="0 0 24 24"><use href="#heart"/></svg>
+      <svg viewBox="0 0 24 24"><use href="#heart"/></svg>
+    </div>
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">⊹ ࣪ ˖ личное дело одной кошечки ˖ ࣪ ⊹</p>
+        <p class="passport">по паспорту <b>Мерей</b>, а для своих просто</p>
+        <div class="name-wrap">
+          <span class="ear l" aria-hidden="true"></span>
+          <span class="ear r" aria-hidden="true"></span>
+          <h1 class="name">Мире</h1>
+          <svg class="name-bow bow-ico" viewBox="0 0 76 56" aria-hidden="true"><use href="#bow"/></svg>
+          <span class="kiss" aria-hidden="true">мяу 💋</span>
+        </div>
+        <ul class="pills" aria-label="коротко о ней">
+          <li>ISFP · «Артист»</li>
+          <li>кинофилка</li>
+          <li>видринк-зависимая</li>
+          <li>пикми и не скрывает</li>
+        </ul>
+        <p class="bubble">не смотри так долго… ладно, смотри ♡</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://t.me/voprosy?start=y2j8g" target="_blank" rel="noopener">🪽 задать анонимный вопрос</a>
+          <a class="btn" href="https://t.me/cinepleaser" target="_blank" rel="noopener">💌 написать @cinepleaser</a>
+        </div>
+      </div>
+
+      <figure class="cat-card panel tone" id="catCard" style="margin:0">
+        <span class="cat-tag">котик дня</span>
+        <span class="purr-bubble" id="purrText" aria-live="polite">мррр ♡</span>
+        <button class="cat-btn" id="petBtn" type="button" aria-label="погладить котика">
+          <svg viewBox="0 0 220 200" role="img" aria-hidden="true">
+            <path class="c-fill" d="M36 100 L50 18 L104 60 Z"/>
+            <path class="c-fill" d="M184 100 L170 18 L116 60 Z"/>
+            <path class="c-inner" d="M52 82 L59 40 L88 64 Z"/>
+            <path class="c-inner" d="M168 82 L161 40 L132 64 Z"/>
+            <ellipse class="c-fill" cx="110" cy="122" rx="86" ry="66"/>
+            <g class="eyes-open">
+              <ellipse class="c-eye" cx="78" cy="118" rx="12" ry="15"/>
+              <ellipse class="c-eye" cx="142" cy="118" rx="12" ry="15"/>
+              <circle class="c-shine" cx="82" cy="111" r="4.5"/>
+              <circle class="c-shine" cx="146" cy="111" r="4.5"/>
+              <circle class="c-shine" cx="74" cy="125" r="2"/>
+              <circle class="c-shine" cx="138" cy="125" r="2"/>
+            </g>
+            <g class="eyes-happy">
+              <path class="c-stroke" d="M65 122 Q78 104 91 122"/>
+              <path class="c-stroke" d="M129 122 Q142 104 155 122"/>
+            </g>
+            <ellipse class="c-blush" cx="58" cy="146" rx="15" ry="8"/>
+            <ellipse class="c-blush" cx="162" cy="146" rx="15" ry="8"/>
+            <path class="c-hatch" d="M52 141 l-4 9 M59 141 l-4 9 M66 141 l-4 9 M156 141 l-4 9 M163 141 l-4 9 M170 141 l-4 9"/>
+            <path class="c-nose" d="M103 132 h14 l-7 8 z"/>
+            <path class="c-stroke" d="M99 145 q5.5 7 11 0 q5.5 7 11 0"/>
+            <path class="c-whisk" d="M20 126 l32 5 M18 142 l34 -3 M200 126 l-32 5 M202 142 l-34 -3"/>
+            <g transform="translate(160 44) rotate(16) scale(.9)">
+              <path class="c-bow" d="M-2 3 L-15 29 L-5 25 L2 4 Z"/>
+              <path class="c-bow" d="M2 3 L15 29 L5 25 L-2 4 Z"/>
+              <path class="c-bow" d="M0 0 C-14 -20 -35 -13 -33 2 C-31 17 -12 15 0 0 Z"/>
+              <path class="c-bow" d="M0 0 C14 -20 35 -13 33 2 C31 17 12 15 0 0 Z"/>
+              <circle class="c-bow" r="6.5"/>
+            </g>
+          </svg>
+        </button>
+        <figcaption>
+          <p class="cat-caption">погладь её, она разрешила</p>
+          <p class="pet-count">котика погладили <b id="petNum">0</b> <span id="petWord">раз</span></p>
+        </figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <div class="lace" aria-hidden="true"></div>
+
+  <!-- ============ ISFP ============ -->
+  <section class="section" id="isfp">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="note">немного типологии</p>
+        <h2>ISFP, она же «Артист»</h2>
+      </div>
+      <p class="lead">Мире — ISFP: тихая снаружи и целая вселенная внутри. Она живёт здесь и сейчас, чувствует всё на двести процентов и рассказывает о себе не длинными речами, а образом, плейлистом и любимыми фильмами.</p>
+      <p class="lead">В 16personalities этот тип зовут «Авантюристом», и это правда про неё: сегодня она выбирает заколку под настроение, а завтра внезапно зовёт туда, где красиво.</p>
+
+      <div class="letters">
+        <div class="letter"><span class="big">I</span><b>интроверт</b><p>заряжается в тишине: плед, фильм, котик на коленях</p></div>
+        <div class="letter"><span class="big">S</span><b>сенсорика</b><p>замечает детали: свет в кадре, кружево, вкус нового видринка</p></div>
+        <div class="letter"><span class="big">F</span><b>чувства</b><p>решает сердцем, и сердце у неё почти всегда право</p></div>
+        <div class="letter"><span class="big">P</span><b>восприятие</b><p>планы на месяц вперёд? мяу. лучше спонтанно</p></div>
+      </div>
+
+      <div class="stack-wrap">
+        <div class="stack-intro">
+          <h3>как у неё всё устроено внутри</h3>
+          <p class="muted" style="margin:0">Стек когнитивных функций ISFP, от главной к самой слабой. Первая решает всё, последняя отвечает за дедлайны и поэтому почти всегда спит.</p>
+        </div>
+        <ol class="stack">
+          <li>
+            <span class="fn-code">Fi<small>ведущая</small></span>
+            <div class="fn-name"><h3>интровертное чувство</h3><span class="fn-role">компас</span></div>
+            <p>Мире точно знает, что ей близко, а что «не моё», от фильма до оттенка розового. Переубедить её нельзя, только очаровать.</p>
+          </li>
+          <li>
+            <span class="fn-code">Se<small>вторая</small></span>
+            <div class="fn-name"><h3>экстравертное ощущение</h3><span class="fn-role">глаза</span></div>
+            <p>Живёт глазами и кожей: красивый кадр, вкусный напиток, мягкий свитер. Момент важнее любого плана.</p>
+          </li>
+          <li>
+            <span class="fn-code">Ni<small>третья</small></span>
+            <div class="fn-name"><h3>интровертная интуиция</h3><span class="fn-role">3 часа ночи</span></div>
+            <p>Иногда посреди ночи выдаёт что-то пророческое и сама этому удивляется.</p>
+          </li>
+          <li>
+            <span class="fn-code">Te<small>слабая</small></span>
+            <div class="fn-name"><h3>экстравертное мышление</h3><span class="fn-role">шипит</span></div>
+            <p>Таблицы, дедлайны и «давай распишем по пунктам» вызывают у неё шипение. Судоку не считается: судоку святое.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <div class="lace" aria-hidden="true"></div>
+
+  <!-- ============ DICTIONARY ============ -->
+  <section class="section" id="slovar">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="note">её любимые фразы</p>
+        <h2>словарик Мире</h2>
+      </div>
+      <div class="dict">
+        <article class="entry panel">
+          <div>
+            <p class="say">ета пик</p>
+            <p class="pron">[э́-та пик] · <i>восклицание</i></p>
+          </div>
+        </article>
+        <article class="entry panel">
+          <div>
+            <p class="say" id="shockWord">олюююм</p>
+            <p class="pron">[о-лю-ю-ю́м] · <i>восклицание</i></p>
+          </div>
+          <button class="shock-btn" id="shockBtn" type="button">ещё шока +ю</button>
+        </article>
+        <article class="entry panel">
+          <div>
+            <p class="say">твар на</p>
+            <p class="pron">[твар на] · <i>обращение</i></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="lace" aria-hidden="true"></div>
+
+  <!-- ============ PICK ME ============ -->
+  <section class="section" id="pikmi">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="note">она пикми и гордится этим</p>
+        <h2>пикми-протокол</h2>
+      </div>
+      <div class="pick-grid">
+        <div>
+          <ul class="meters">
+            <li class="meter"><span class="m-label">милота</span><span class="bar"><i style="--v:100%"></i></span><span class="m-val">100%</span></li>
+            <li class="meter"><span class="m-label">кокетство</span><span class="bar"><i style="--v:96%"></i></span><span class="m-val">96%</span></li>
+            <li class="meter"><span class="m-label">пикми-энергия</span><span class="bar over"><i style="--v:110%"></i></span><span class="m-val">110%</span></li>
+            <li class="meter"><span class="m-label">любовь к кино</span><span class="bar"><i style="--v:100%"></i></span><span class="m-val">100%</span></li>
+            <li class="meter"><span class="m-label">любовь к видринку</span><span class="bar"><i style="--v:99%"></i></span><span class="m-val">99%</span></li>
+            <li class="meter"><span class="m-label">желание что-то планировать</span><span class="bar"><i style="--v:12%"></i></span><span class="m-val">12%</span></li>
+          </ul>
+          <p class="meters-cap">замеры проводили котики. погрешность ± мяу</p>
+        </div>
+
+        <div class="quote-card panel tone">
+          <svg class="bow-ico" viewBox="0 0 76 56" width="84" aria-hidden="true"><use href="#bow"/></svg>
+          <p class="quote">«я не такая, как другие девочки»</p>
+          <button class="btn primary" id="factBtn" type="button" aria-pressed="false" aria-controls="verdict">проверить факты</button>
+          <p class="verdict" id="verdict" hidden>проверено котиками: правда. она милее ♡<br>олюююм</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lace" aria-hidden="true"></div>
+
+  <!-- ============ CARE ============ -->
+  <section class="section" id="care">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="note">выучить наизусть</p>
+        <h2>инструкция по уходу за Мире</h2>
+      </div>
+      <ul class="care">
+        <li><svg aria-hidden="true"><use href="#paw"/></svg><span>Корми видринком. Можно без повода, повод она придумает сама.</span></li>
+        <li><svg aria-hidden="true"><use href="#paw"/></svg><span>Зови в кино, но фильм выбирает она.</span></li>
+        <li><svg aria-hidden="true"><use href="#paw"/></svg><span>Хвали образ. Она собирала его дольше, чем ты думаешь.</span></li>
+        <li><svg aria-hidden="true"><use href="#paw"/></svg><span>Если притихла, она не обиделась, а перезаряжается.</span></li>
+        <li><svg aria-hidden="true"><use href="#paw"/></svg><span>Говори комплименты. Да, ещё один. И ещё.</span></li>
+      </ul>
+      <p class="care-final">и помни: она делает вид, что ей всё равно. ей не всё равно ♡</p>
+    </div>
+  </section>
+
+  <div class="lace" aria-hidden="true"></div>
+
+  <!-- ============ CINEMA ============ -->
+  <section class="section" id="kino">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="note">поэтому и ник такой</p>
+        <h2>кино — это её всё</h2>
+      </div>
+      <p class="lead" style="margin-bottom:40px">Ник <b>@cinepleaser</b> можно перевести как «та, что радует кино». Но по-моему, всё наоборот: это кино радует её. Мире смотрит фильмы, оценивает их в леттербоксе и точно знает, какой кадр поставить на аву.</p>
+
+      <div class="tickets">
+        <div class="ticket">
+          <div class="t-main">
+            <span class="t-label">киносеанс с Мире</span>
+            <ul class="t-rows">
+              <li><span><em>ряд:</em> последний</span></li>
+              <li><span><em>место:</em> рядом с ней</span></li>
+              <li><span><em>фильм:</em> выбирает она</span></li>
+            </ul>
+          </div>
+          <span class="t-stub">№ 0001 · admit one</span>
+        </div>
+        <div class="ticket">
+          <div class="t-main">
+            <span class="t-label">сейчас в программе</span>
+            <ul class="t-rows">
+              <li><span>Welcome to the NHK</span></li>
+              <li><span>Kacchu Musume (2006)</span></li>
+              <li><span>всё, что она посоветует</span></li>
+            </ul>
+          </div>
+          <span class="t-stub">№ 0002 · ета пик</span>
+        </div>
+        <div class="ticket">
+          <div class="t-main">
+            <span class="t-label">правила зала</span>
+            <ul class="t-rows">
+              <li><span>не болтать <em>(ей можно)</em></span></li>
+              <li><span>попкорн пополам <em>(ей побольше)</em></span></li>
+              <li><span>титры досматриваем</span></li>
+            </ul>
+          </div>
+          <span class="t-stub">№ 0003 · ♡ ♡ ♡</span>
+        </div>
+      </div>
+
+      <div class="filmstrip" aria-hidden="true">
+        <div class="frames">
+          <div class="frame"><span class="k">(=^･ω･^=)</span><span class="c">мире смотрит</span></div>
+          <div class="frame"><span class="k">(╥﹏╥)</span><span class="c">плачет на титрах</span></div>
+          <div class="frame"><span class="k">★★★★★</span><span class="c">ета пик</span></div>
+          <div class="frame"><span class="k">ฅ^•ﻌ•^ฅ</span><span class="c">ещё одну серию</span></div>
+          <div class="frame"><span class="k">(⊙ˍ⊙)</span><span class="c">олюююм</span></div>
+          <div class="frame"><span class="k">🍿 ♡</span><span class="c">попкорн пополам</span></div>
+          <div class="frame"><span class="k">(=^･ω･^=)</span><span class="c">мире смотрит</span></div>
+          <div class="frame"><span class="k">(╥﹏╥)</span><span class="c">плачет на титрах</span></div>
+          <div class="frame"><span class="k">★★★★★</span><span class="c">ета пик</span></div>
+          <div class="frame"><span class="k">ฅ^•ﻌ•^ฅ</span><span class="c">ещё одну серию</span></div>
+          <div class="frame"><span class="k">(⊙ˍ⊙)</span><span class="c">олюююм</span></div>
+          <div class="frame"><span class="k">🍿 ♡</span><span class="c">попкорн пополам</span></div>
+        </div>
+      </div>
+
+      <div class="cinema-cta">
+        <a class="btn primary" href="https://boxd.it/8sucF" target="_blank" rel="noopener">👋 её оценки в леттербоксе ↗</a>
+        <span class="note" style="font-size:1.35rem">спойлер: там много «ета пик»</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="lace" aria-hidden="true"></div>
+
+  <!-- ============ WEDRINK ============ -->
+  <section class="section" id="vidrink">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="note">лучший способ её порадовать</p>
+        <h2>видринк o’clock</h2>
+      </div>
+      <div class="drink-grid">
+        <div class="cup-stage panel tone">
+          <svg class="cup" id="cup" viewBox="0 0 170 240" aria-hidden="true" style="--drink:#FF8FB0">
+            <defs>
+              <clipPath id="cupClip"><path d="M32 86 L138 86 L126 224 Q85 232 44 224 Z"/></clipPath>
+            </defs>
+            <rect class="cup-straw cup-line" x="96" y="2" width="14" height="84" rx="5" transform="rotate(10 103 60)"/>
+            <path class="cup-lid cup-line" d="M52 60 L44 34 L64 50 Z"/>
+            <path class="cup-lid cup-line" d="M118 60 L126 34 L106 50 Z"/>
+            <path class="cup-lid cup-line" d="M30 74 Q85 26 140 74 Z"/>
+            <rect class="cup-lid cup-line" x="22" y="72" width="126" height="15" rx="7"/>
+            <path class="cup-glass" d="M32 86 L138 86 L126 224 Q85 232 44 224 Z"/>
+            <g clip-path="url(#cupClip)">
+              <rect class="cup-drink" x="20" y="104" width="130" height="140"/>
+              <g class="pearls" id="pearls">
+                <circle class="cup-pearl" cx="52" cy="214" r="7"/><circle class="cup-pearl" cx="68" cy="220" r="7"/>
+                <circle class="cup-pearl" cx="85" cy="214" r="7"/><circle class="cup-pearl" cx="102" cy="220" r="7"/>
+                <circle class="cup-pearl" cx="118" cy="213" r="7"/><circle class="cup-pearl" cx="60" cy="204" r="7"/>
+                <circle class="cup-pearl" cx="94" cy="203" r="7"/><circle class="cup-pearl" cx="111" cy="200" r="6"/>
+              </g>
+            </g>
+            <path class="cup-line" fill="none" d="M32 86 L138 86 L126 224 Q85 232 44 224 Z"/>
+            <circle class="cup-face" cx="68" cy="142" r="5"/>
+            <circle class="cup-face" cx="102" cy="142" r="5"/>
+            <path class="cup-line" fill="none" d="M79 150 q3 5 6 0 q3 5 6 0" style="stroke-width:3"/>
+            <ellipse class="cup-blush" cx="56" cy="154" rx="8" ry="4.5"/>
+            <ellipse class="cup-blush" cx="114" cy="154" rx="8" ry="4.5"/>
+          </svg>
+          <p class="reply" id="reply" aria-live="polite">Мире: <b>«клубничный… ты запомнил(а)? 😳»</b></p>
+        </div>
+
+        <div>
+          <p class="lead">Её инста называется <b>@emptycupofchai</b>, то есть «пустая чашка чая». Непорядок. Чашку надо наполнить, и лучше всего видринком.</p>
+          <p class="lead">Выбери, что принести Мире:</p>
+          <ul class="menu">
+            <li><button class="drink-btn" type="button" aria-pressed="false" data-color="#D9A77A" data-pearls="1" data-reply="олюююм, это мне?? 🥺 спасибо-спасибо"><span class="swatch" style="--c:#D9A77A"></span>молочный чай с тапиокой</button></li>
+            <li><button class="drink-btn" type="button" aria-pressed="true" data-color="#FF8FB0" data-pearls="0" data-reply="клубничный… ты запомнил(а)? 😳"><span class="swatch" style="--c:#FF8FB0"></span>клубничный чай</button></li>
+            <li><button class="drink-btn" type="button" aria-pressed="false" data-color="#FFE27A" data-pearls="0" data-reply="освежает почти так же, как ты ♡"><span class="swatch" style="--c:#FFE27A"></span>лимонад</button></li>
+            <li><button class="drink-btn" type="button" aria-pressed="false" data-color="#FFB14E" data-pearls="1" data-reply="ета пик. твар на, откуда ты знал(а) 💋"><span class="swatch" style="--c:#FFB14E"></span>манговый с жемчужинками</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lace" aria-hidden="true"></div>
+
+  <!-- ============ VIBE ============ -->
+  <section class="section" id="vibe">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="note">собрано по её пинтересту</p>
+        <h2>вайб</h2>
+      </div>
+      <p class="lead" style="margin-bottom:34px">Мягкое и колючее одновременно: кружево и ремень с заклёпками, розовый бантик и чёрно-белая манга, милые котики и мемы в два часа ночи.</p>
+      <ul class="stickers">
+        <li class="s-pink" style="--r:-3deg">кружево и оборки</li>
+        <li class="s-tone" style="--r:2deg">манга-скринтон</li>
+        <li class="s-hand" style="--r:-2deg">няяяяя</li>
+        <li style="--r:1.5deg">заколки-заколочки</li>
+        <li class="s-ink" style="--r:-1deg">ремень с заклёпками</li>
+        <li class="s-lace" style="--r:3deg">белые носочки</li>
+        <li style="--r:-2.5deg">ногти с камушками</li>
+        <li class="s-tone" style="--r:1deg">ч/б кадры</li>
+        <li class="s-pink" style="--r:2.5deg">comfort characters</li>
+        <li class="s-hand" style="--r:-3deg">sudoku &gt;&gt;&gt;</li>
+        <li class="s-ink" style="--r:2deg">серебро</li>
+        <li style="--r:-1.5deg">welcome to the NHK</li>
+        <li class="s-lace" style="--r:1.5deg">fits</li>
+        <li class="s-tone" style="--r:-2deg">мемы про макчикен</li>
+        <li class="s-hand" style="--r:2deg">инспирашки неформальности</li>
+      </ul>
+      <div class="vibe-foot">
+        <a class="btn" href="https://pin.it/3iyzxD1xB" target="_blank" rel="noopener">🌟 весь вайб в пинтересте ↗</a>
+        <span class="deco" aria-hidden="true">⊹ ࣪ ˖ ໒꒱</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="lace" aria-hidden="true"></div>
+
+  <!-- ============ LINKS ============ -->
+  <section class="section" id="links">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="note">(вроде) (буду дополнять)</p>
+        <h2>все её ссылки 🙏</h2>
+      </div>
+
+      <div class="features">
+        <div class="feature anon panel">
+          <p class="f-title">🪽 анонка 🪽</p>
+          <p>Задай Мире любой вопрос анонимно. Она не узнает, кто ты. Наверное.</p>
+          <div><a class="btn" href="https://t.me/voprosy?start=y2j8g" target="_blank" rel="noopener">спросить анонимно ↗</a></div>
+        </div>
+        <div class="feature panel tone">
+          <p class="f-title">💌 телеграм</p>
+          <p>Если смелый(ая), пиши напрямую:</p>
+          <div class="handle-row">
+            <span class="handle" id="tgHandle">@cinepleaser</span>
+            <button class="copy-btn" id="copyBtn" type="button">скопировать</button>
+          </div>
+          <div><a class="btn primary" href="https://t.me/cinepleaser" target="_blank" rel="noopener">открыть в тг ↗</a></div>
+        </div>
+      </div>
+
+      <div class="link-grid">
+        <a class="link-card" href="https://www.instagram.com/emptycupofchai" target="_blank" rel="noopener">
+          <span class="lc-arrow" aria-hidden="true">↗</span>
+          <span class="lc-emo" aria-hidden="true">💋 💘</span>
+          <span class="lc-name">инста</span><span class="lc-sub">@emptycupofchai</span>
+        </a>
+        <a class="link-card" href="https://open.spotify.com/user/31aopzku5t7erj6wqq6khhdrfmje" target="_blank" rel="noopener">
+          <span class="lc-arrow" aria-hidden="true">↗</span>
+          <span class="lc-emo" aria-hidden="true">🥴 🌹</span>
+          <span class="lc-name">спотик</span><span class="lc-sub">её плейлисты</span>
+        </a>
+        <a class="link-card" href="https://www.tiktok.com/@ultramiloserdie" target="_blank" rel="noopener">
+          <span class="lc-arrow" aria-hidden="true">↗</span>
+          <span class="lc-emo" aria-hidden="true">😊 😫</span>
+          <span class="lc-name">тикеток</span><span class="lc-sub">@ultramiloserdie</span>
+        </a>
+        <a class="link-card" href="https://boxd.it/8sucF" target="_blank" rel="noopener">
+          <span class="lc-arrow" aria-hidden="true">↗</span>
+          <span class="lc-emo" aria-hidden="true">👋 💋</span>
+          <span class="lc-name">леттербоксек</span><span class="lc-sub">фильмы и оценки</span>
+        </a>
+        <a class="link-card" href="https://ohmywishes.com/users/mewirjejks" target="_blank" rel="noopener">
+          <span class="lc-arrow" aria-hidden="true">↗</span>
+          <span class="lc-emo" aria-hidden="true">🍓 🍓</span>
+          <span class="lc-name">вишлист</span><span class="lc-sub">подсказка для подарков</span>
+        </a>
+        <a class="link-card" href="https://pin.it/3iyzxD1xB" target="_blank" rel="noopener">
+          <span class="lc-arrow" aria-hidden="true">↗</span>
+          <span class="lc-emo" aria-hidden="true">🌟 🌟</span>
+          <span class="lc-name">пинтерест</span><span class="lc-sub">ultramiloserdie</span>
+        </a>
+        <a class="link-card" href="https://www.roblox.com/share?code=148a76bf6773a34d96f7ea1b22b33d0a&amp;type=Profile&amp;source=ProfileShare&amp;stamp=1786354977958" target="_blank" rel="noopener">
+          <span class="lc-arrow" aria-hidden="true">↗</span>
+          <span class="lc-emo" aria-hidden="true">🎟 🌟</span>
+          <span class="lc-name">роблакс</span><span class="lc-sub">профиль</span>
+        </a>
+        <a class="link-card" href="https://launch.minecraft.net/profile/MeilovesYou111" target="_blank" rel="noopener">
+          <span class="lc-arrow" aria-hidden="true">↗</span>
+          <span class="lc-emo" aria-hidden="true">🎴 🎴</span>
+          <span class="lc-name">майнкрафтек</span><span class="lc-sub">MeilovesYou111</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="lace" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="kaomoji" aria-hidden="true">ฅ^•ﻌ•^ฅ</p>
+    <p class="sign">сделано с любовью для Мерей, которую мы зовём Мире</p>
+    <p>ета пик · 2026 · <svg class="heart-ico" aria-hidden="true"><use href="#heart"/></svg></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* hearts on every click */
+  var glyphs = ['♥', '♡', '♥', '✦'];
+  document.addEventListener('click', function (e) {
+    if (reduce || !e.clientX && !e.clientY) return;
+    for (var i = 0; i < 7; i++) {
+      var h = document.createElement('span');
+      h.className = 'pop-heart';
+      h.textContent = glyphs[i % glyphs.length];
+      h.style.left = e.clientX + 'px';
+      h.style.top = e.clientY + 'px';
+      h.style.fontSize = (14 + Math.random() * 18) + 'px';
+      h.style.setProperty('--dx', (Math.random() * 140 - 70) + 'px');
+      h.style.setProperty('--dy', (-50 - Math.random() * 100) + 'px');
+      h.style.setProperty('--rot', (Math.random() * 80 - 40) + 'deg');
+      h.addEventListener('animationend', function () { this.remove(); });
+      document.body.appendChild(h);
+    }
+  });
+
+  /* pet the cat */
+  var card = document.getElementById('catCard');
+  var petNum = document.getElementById('petNum');
+  var petWord = document.getElementById('petWord');
+  var purrText = document.getElementById('purrText');
+  var purrs = ['мррр ♡', 'ещё 🥺', 'мяу!', 'ета пик', '*мурчит*', 'твар на ♡', 'ну ладно, ещё'];
+  var pets = 0, timer;
+  try { pets = parseInt(localStorage.getItem('mire-pets'), 10) || 0; } catch (e) {}
+  function word(n) {
+    var a = n % 10, b = n % 100;
+    return (a >= 2 && a <= 4 && (b < 12 || b > 14)) ? 'раза' : 'раз';
+  }
+  function showPets() { petNum.textContent = pets; petWord.textContent = word(pets); }
+  showPets();
+  document.getElementById('petBtn').addEventListener('click', function () {
+    pets++;
+    try { localStorage.setItem('mire-pets', pets); } catch (e) {}
+    showPets();
+    purrText.textContent = purrs[Math.floor(Math.random() * purrs.length)];
+    card.classList.remove('purring');
+    void card.offsetWidth;
+    card.classList.add('purring');
+    clearTimeout(timer);
+    timer = setTimeout(function () { card.classList.remove('purring'); }, 1400);
+  });
+
+  /* shock level */
+  var shockWord = document.getElementById('shockWord');
+  var yu = 3;
+  document.getElementById('shockBtn').addEventListener('click', function () {
+    yu = yu >= 14 ? 3 : yu + 1;
+    shockWord.textContent = 'ол' + 'ю'.repeat(yu) + 'м';
+    this.textContent = yu >= 14 ? 'перебор, сбросить шок' : 'ещё шока +ю';
+    shockWord.classList.remove('shake');
+    void shockWord.offsetWidth;
+    shockWord.classList.add('shake');
+  });
+
+  /* pick-me fact check */
+  var factBtn = document.getElementById('factBtn');
+  var verdict = document.getElementById('verdict');
+  factBtn.addEventListener('click', function () {
+    var on = factBtn.getAttribute('aria-pressed') !== 'true';
+    factBtn.setAttribute('aria-pressed', String(on));
+    verdict.hidden = !on;
+    factBtn.textContent = on ? 'спрятать' : 'проверить факты';
+    if (on) { verdict.classList.remove('pop'); void verdict.offsetWidth; verdict.classList.add('pop'); }
+  });
+
+  /* wedrink */
+  var cup = document.getElementById('cup');
+  var pearls = document.getElementById('pearls');
+  var reply = document.getElementById('reply');
+  var drinks = document.querySelectorAll('.drink-btn');
+  function pour(btn) {
+    drinks.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+    cup.style.setProperty('--drink', btn.dataset.color);
+    pearls.style.opacity = btn.dataset.pearls === '1' ? '1' : '0';
+    reply.innerHTML = 'Мире: <b>«' + btn.dataset.reply + '»</b>';
+    cup.classList.remove('wiggle'); void cup.getBoundingClientRect(); cup.classList.add('wiggle');
+  }
+  drinks.forEach(function (b) { b.addEventListener('click', function () { pour(b); }); });
+  pearls.style.opacity = '0';
+
+  /* copy telegram handle */
+  var copyBtn = document.getElementById('copyBtn');
+  var handle = document.getElementById('tgHandle');
+  copyBtn.addEventListener('click', function () {
+    var done = function (msg) { copyBtn.textContent = msg; setTimeout(function () { copyBtn.textContent = 'скопировать'; }, 1800); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(handle);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      done('выделено, жми ctrl+c');
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText('@cinepleaser').then(function () { done('скопировано ♡'); }, fallback);
+    } else { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
