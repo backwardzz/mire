@@ -6,6 +6,15 @@
 <title>Мире</title>
 <meta name="description" content="Мерей, для своих Мире: ISFP, кинофилка, видринк-зависимая кошечка. Все её ссылки и анонимные вопросы.">
 <meta name="theme-color" content="#FFEEF3">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Мире ♡">
+<meta property="og:description" content="по паспорту Мерей, а для своих просто Мире. ISFP, кинофилка и видринк-зависимая кошечка">
+<meta property="og:url" content="https://backwardzz.github.io/mire/">
+<meta property="og:image" content="https://backwardzz.github.io/mire/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M14 50 L20 8 L46 30 Z M86 50 L80 8 L54 30 Z' fill='%23D92D68'/%3E%3Cellipse cx='50' cy='58' rx='42' ry='34' fill='%23D92D68'/%3E%3Cellipse cx='36' cy='56' rx='6' ry='8' fill='%23fff'/%3E%3Cellipse cx='64' cy='56' rx='6' ry='8' fill='%23fff'/%3E%3Cpath d='M45 70 q2.5 4 5 0 q2.5 4 5 0' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:ital,wght@0,400;0,600;0,800;0,900;1,600&family=Rubik+Bubbles&display=swap">
@@ -541,6 +550,69 @@
   footer p { margin: 0; color: var(--muted); }
   footer .sign { font-family: var(--hand); font-weight: 700; font-size: 1.6rem; color: var(--ink); }
 
+  /* ---------- compatibility ---------- */
+  .compat {
+    margin-top: 64px; padding: clamp(22px, 4vw, 36px);
+    display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(24px, 4vw, 44px); align-items: center;
+  }
+  .compat-head { display: grid; gap: 6px; margin-bottom: 18px; }
+  .compat-head p { margin: 0; color: var(--muted); }
+  .types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .type-btn {
+    font: 900 .95rem/1 var(--body); letter-spacing: .05em;
+    padding: 12px 0; border-radius: 12px;
+    border: 2px solid var(--line); background: var(--surface); color: var(--ink);
+    cursor: pointer; transition: transform .12s ease;
+  }
+  .type-btn:hover { transform: translateY(-2px); }
+  .type-btn.her { border-style: dashed; }
+  .type-btn[aria-pressed="true"] { background: var(--pink); color: var(--on-pink); }
+  .compat-out {
+    display: grid; gap: 10px; align-content: center; min-height: 190px;
+    padding: 24px; border-radius: 18px;
+    background: var(--surface); border: 2.5px solid var(--line);
+  }
+  .c-score { margin: 0; font-family: var(--display); font-size: clamp(3rem, 8vw, 4.4rem); line-height: 1; color: var(--pink); font-variant-numeric: tabular-nums; }
+  .c-text { margin: 0; font-size: 1.08rem; }
+  .c-note { margin: 0; font-family: var(--hand); font-weight: 700; font-size: 1.3rem; color: var(--muted); }
+
+  /* ---------- anon question helper ---------- */
+  .ask { display: grid; gap: 10px; }
+  .feature .ask-q {
+    margin: 0; padding: 12px 16px; border-radius: 16px;
+    background: var(--surface); color: var(--ink); border: 2px solid var(--line);
+    font-family: var(--hand); font-weight: 700; font-size: 1.45rem; line-height: 1.15;
+  }
+  .ask-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* ---------- peeking cat ---------- */
+  .peek {
+    position: fixed; z-index: 30;
+    right: max(16px, env(safe-area-inset-right, 0px));
+    bottom: env(safe-area-inset-bottom, 0px);
+    width: 86px; height: 78px; padding: 0; border: 0; background: none; cursor: pointer;
+    transform: translateY(105%);
+    transition: transform .4s cubic-bezier(.3, 1.5, .5, 1);
+  }
+  .peek.show { transform: translateY(42%); }
+  .peek.show:hover, .peek.show:focus-visible { transform: translateY(4%); }
+  .peek svg { display: block; width: 100%; height: 100%; overflow: visible; }
+  .peek-tip {
+    position: absolute; bottom: calc(100% + 6px); right: 4px;
+    font-family: var(--hand); font-weight: 700; font-size: 1.3rem; line-height: 1; white-space: nowrap;
+    padding: 5px 12px; border-radius: 14px;
+    background: var(--surface); color: var(--ink); border: 2px solid var(--line);
+    opacity: 0; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease;
+    pointer-events: none;
+  }
+  .peek.show:hover .peek-tip, .peek.show:focus-visible .peek-tip { opacity: 1; transform: none; }
+
+  /* ---------- cursors ---------- */
+  @media (pointer: fine) {
+    body { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'%3E%3Cg fill='%23FF8FB1' stroke='%233A1828' stroke-width='1.3'%3E%3Cellipse cx='12' cy='16.2' rx='5.4' ry='4.6'/%3E%3Cellipse cx='4.6' cy='10.2' rx='2.3' ry='2.9'/%3E%3Cellipse cx='9' cy='5.6' rx='2.3' ry='3'/%3E%3Cellipse cx='15' cy='5.6' rx='2.3' ry='3'/%3E%3Cellipse cx='19.4' cy='10.2' rx='2.3' ry='2.9'/%3E%3C/g%3E%3C/svg%3E") 10 4, auto; }
+    a, button { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'%3E%3Cpath fill='%23D92D68' stroke='%23FFFFFF' stroke-width='1.6' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") 14 12, pointer; }
+  }
+
   /* ---------- click hearts ---------- */
   .pop-heart {
     position: fixed; z-index: 60; pointer-events: none;
@@ -560,7 +632,8 @@
     .link-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 820px) {
-    .hero-grid, .stack-wrap, .pick-grid, .drink-grid, .features { grid-template-columns: 1fr; }
+    .hero-grid, .stack-wrap, .pick-grid, .drink-grid, .features, .compat { grid-template-columns: 1fr; }
+    .compat-out { min-height: 0; }
     .cat-card { max-width: 420px; justify-self: center; width: 100%; }
     .care { grid-template-columns: 1fr; }
     .logo { font-size: 1.3rem; }
@@ -736,6 +809,38 @@
           </li>
         </ol>
       </div>
+
+      <div class="compat panel tone">
+        <div>
+          <div class="compat-head">
+            <h3>а ты с ней совместим(а)?</h3>
+            <p>Выбери свой тип, котики всё посчитают.</p>
+          </div>
+          <div class="types" id="types">
+            <button class="type-btn" type="button" aria-pressed="false">ISTJ</button>
+            <button class="type-btn" type="button" aria-pressed="false">ISFJ</button>
+            <button class="type-btn" type="button" aria-pressed="false">INFJ</button>
+            <button class="type-btn" type="button" aria-pressed="false">INTJ</button>
+            <button class="type-btn" type="button" aria-pressed="false">ISTP</button>
+            <button class="type-btn her" type="button" aria-pressed="false">ISFP</button>
+            <button class="type-btn" type="button" aria-pressed="false">INFP</button>
+            <button class="type-btn" type="button" aria-pressed="false">INTP</button>
+            <button class="type-btn" type="button" aria-pressed="false">ESTP</button>
+            <button class="type-btn" type="button" aria-pressed="false">ESFP</button>
+            <button class="type-btn" type="button" aria-pressed="false">ENFP</button>
+            <button class="type-btn" type="button" aria-pressed="false">ENTP</button>
+            <button class="type-btn" type="button" aria-pressed="false">ESTJ</button>
+            <button class="type-btn" type="button" aria-pressed="false">ESFJ</button>
+            <button class="type-btn" type="button" aria-pressed="false">ENFJ</button>
+            <button class="type-btn" type="button" aria-pressed="false">ENTJ</button>
+          </div>
+        </div>
+        <div class="compat-out" aria-live="polite">
+          <p class="c-score" id="cScore">?%</p>
+          <p class="c-text" id="cText">Нажми на свой тип слева. Не знаешь его? Тогда просто нажми на ISFP, там всё мило.</p>
+          <p class="c-note">расчёты котиков, не науки</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -819,6 +924,7 @@
         <li><svg aria-hidden="true"><use href="#paw"/></svg><span>Хвали образ. Она собирала его дольше, чем ты думаешь.</span></li>
         <li><svg aria-hidden="true"><use href="#paw"/></svg><span>Если притихла, она не обиделась, а перезаряжается.</span></li>
         <li><svg aria-hidden="true"><use href="#paw"/></svg><span>Говори комплименты. Да, ещё один. И ещё.</span></li>
+        <li><svg aria-hidden="true"><use href="#paw"/></svg><span>Присылай ей котиков. Любых. В любое время суток.</span></li>
       </ul>
       <p class="care-final">и помни: она делает вид, что ей всё равно. ей не всё равно ♡</p>
     </div>
@@ -997,6 +1103,13 @@
         <div class="feature anon panel">
           <p class="f-title">🪽 анонка 🪽</p>
           <p>Задай Мире любой вопрос анонимно. Она не узнает, кто ты. Наверное.</p>
+          <div class="ask">
+            <p class="ask-q" id="askQ" aria-live="polite">какой фильм ты можешь пересматривать бесконечно?</p>
+            <div class="ask-row">
+              <button class="copy-btn" id="askBtn" type="button">другой вопрос</button>
+              <button class="copy-btn" id="askCopy" type="button">скопировать вопрос</button>
+            </div>
+          </div>
           <div><a class="btn" href="https://t.me/voprosy?start=y2j8g" target="_blank" rel="noopener">спросить анонимно ↗</a></div>
         </div>
         <div class="feature panel tone">
@@ -1065,8 +1178,117 @@
   </div>
 </footer>
 
+<button class="peek" id="peek" type="button" aria-label="наверх" tabindex="-1">
+  <span class="peek-tip">наверх? ♡</span>
+  <svg viewBox="0 0 220 200" aria-hidden="true">
+    <path class="c-fill" d="M36 100 L50 18 L104 60 Z"/>
+    <path class="c-fill" d="M184 100 L170 18 L116 60 Z"/>
+    <path class="c-inner" d="M52 82 L59 40 L88 64 Z"/>
+    <path class="c-inner" d="M168 82 L161 40 L132 64 Z"/>
+    <ellipse class="c-fill" cx="110" cy="122" rx="86" ry="66"/>
+    <ellipse class="c-eye" cx="78" cy="118" rx="12" ry="15"/>
+    <ellipse class="c-eye" cx="142" cy="118" rx="12" ry="15"/>
+    <circle class="c-shine" cx="82" cy="111" r="4.5"/>
+    <circle class="c-shine" cx="146" cy="111" r="4.5"/>
+    <ellipse class="c-blush" cx="58" cy="146" rx="15" ry="8"/>
+    <ellipse class="c-blush" cx="162" cy="146" rx="15" ry="8"/>
+    <path class="c-nose" d="M103 132 h14 l-7 8 z"/>
+    <path class="c-stroke" d="M99 145 q5.5 7 11 0 q5.5 7 11 0"/>
+    <g transform="translate(160 44) rotate(16) scale(.9)">
+      <path class="c-bow" d="M0 0 C-14 -20 -35 -13 -33 2 C-31 17 -12 15 0 0 Z"/>
+      <path class="c-bow" d="M0 0 C14 -20 35 -13 33 2 C31 17 12 15 0 0 Z"/>
+      <circle class="c-bow" r="6.5"/>
+    </g>
+  </svg>
+</button>
+
 <script>
 (function () {
+  /* tab title when she's left alone */
+  var baseTitle = document.title;
+  document.addEventListener('visibilitychange', function () {
+    document.title = document.hidden ? 'мяу, ты куда? 🥺' : baseTitle;
+  });
+
+  /* peeking cat = back to top */
+  var peek = document.getElementById('peek');
+  var onScroll = function () {
+    var on = window.scrollY > window.innerHeight * 0.9;
+    peek.classList.toggle('show', on);
+    peek.tabIndex = on ? 0 : -1;
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  peek.addEventListener('click', function () { window.scrollTo({ top: 0 }); });
+
+  /* compatibility */
+  var groups = {
+    ISFP: [100, 'Два котика в одной коробке. Будете молча смотреть кино и понимать друг друга без слов.'],
+    ESFJ: [99, 'По теории типов это её идеальная пара. Ты заботишься, она расцветает. Ета пик.'],
+    ESTJ: [97, 'Тоже считается её идеальной парой: ты строишь планы, она делает их красивыми. Видринк всегда куплен заранее.'],
+    SP:   [94, 'Спонтанность × 2. Позовёшь её гулять в 23:40, и она скажет да. Кто-то один должен помнить про ключи.'],
+    NF:   [91, 'Будете плакать на одних и тех же фильмах и обсуждать их до трёх ночи. Олюююм, как душевно.'],
+    SJ:   [86, 'Ты напоминаешь про дедлайны, она про то, что жизнь одна. Вместе получается баланс.'],
+    NT:   [78, 'Ты: «давай логически разберём сюжет». Она: «просто почувствуй». Будет весело. Возможно, «твар на».']
+  };
+  function group(t) {
+    if (groups[t]) return groups[t];
+    if (t[1] === 'S' && t[3] === 'P') return groups.SP;
+    if (t[1] === 'S') return groups.SJ;
+    if (t[2] === 'F') return groups.NF;
+    return groups.NT;
+  }
+  var typeBtns = document.querySelectorAll('.type-btn');
+  var cScore = document.getElementById('cScore');
+  var cText = document.getElementById('cText');
+  typeBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.textContent.trim(), g = group(t);
+      typeBtns.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      cScore.textContent = g[0] + '%';
+      cText.textContent = t + ' + ISFP: ' + g[1];
+      cScore.classList.remove('shake'); void cScore.offsetWidth; cScore.classList.add('shake');
+    });
+  });
+
+  /* anon question ideas */
+  var questions = [
+    'какой фильм ты можешь пересматривать бесконечно?',
+    'какой фильм последним получил от тебя «ета пик»?',
+    'что недавно заставило тебя сказать «олюююм»?',
+    'кого ты последний раз назвала «твар на»?',
+    'твой топ-3 напитка в видринке?',
+    'кто твой comfort character?',
+    'какой кадр из фильма ты бы повесила на стену?',
+    'какую песню ты сейчас слушаешь на репите?',
+    'какой образ ты бы собрала на первое свидание?',
+    'какой фильм посоветуешь посмотреть сегодня вечером?',
+    'какой у тебя самый пикми-поступок?',
+    'какой была бы твоя кошачья порода?',
+    'как выглядит твой идеальный день?',
+    'на каком фильме ты плакала сильнее всего?'
+  ];
+  var qi = 0;
+  var askQ = document.getElementById('askQ');
+  var askCopy = document.getElementById('askCopy');
+  document.getElementById('askBtn').addEventListener('click', function () {
+    var n;
+    do { n = Math.floor(Math.random() * questions.length); } while (n === qi);
+    qi = n;
+    askQ.textContent = questions[qi];
+  });
+  askCopy.addEventListener('click', function () {
+    var done = function (msg) { askCopy.textContent = msg; setTimeout(function () { askCopy.textContent = 'скопировать вопрос'; }, 1800); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(askQ);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      done('выделено, жми ctrl+c');
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(askQ.textContent).then(function () { done('скопировано, вставь в анонку ♡'); }, fallback);
+    } else { fallback(); }
+  });
+
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* hearts on every click */
